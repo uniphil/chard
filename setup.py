@@ -22,5 +22,5 @@ with open('readme.md') as readme:
         description='MongoDB Introspection-ish. ...',
         long_description=readme.read(),
         install_requires=['pymongo'],
-        packages=['chard'],
+        py_modules=['chard'],
     )
