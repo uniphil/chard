@@ -49,12 +49,16 @@ def get_schema(documents):
             template = {'schema': schema, 'count': 1}
             schemas[schema_hash] = template
 
+    popular = sorted(schemas.items(), key=lambda t: t[1]['count'])[-1][1]
+    total = sum(value['count'] for value in schemas.values())
     # return the most popular one. better, return the top ones with % matching
-    return schemas
+    return popular['count'] / float(total), popular['schema'],
 
 
 def get_nice_schema(collection):
     """stupid proxy for stdlib pprint"""
-    from pprint import pprint
     schema = get_schema(collection)
-    return pprint(schema)
+    from pprint import PrettyPrinter
+    pp = PrettyPrinter(indent=2, width=16)
+    nice = pp.pformat(schema)
+    return nice
