@@ -21,6 +21,6 @@ with open('readme.md') as readme:
         license='blah blah blah',
         description='MongoDB Introspection-ish. ...',
         long_description=readme.read(),
-        install_requires=['pymongo'],
+        install_requires=[],
         py_modules=['chard'],
     )
