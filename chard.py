@@ -11,7 +11,13 @@
     :license: dwtfyw. optionally buy me a coffee.
 """
 
-from collections import OrderedDict
+try:
+    from collections import OrderedDict
+except ImportError as e:
+    try:
+        from ordereddict import OrderedDict
+    except ImportError:
+        raise e
 
 
 class NiceOD(OrderedDict):
