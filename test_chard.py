@@ -2,7 +2,7 @@ import unittest
 import chard
 
 
-class TestBlah(unittest.TestCase):
+class TestGetSchema(unittest.TestCase):
 
     def test_empty(self):
         docs = ({},)
@@ -20,3 +20,16 @@ class TestBlah(unittest.TestCase):
         schema = chard.get_schema((doc1, doc1, doc1, doc2))
         self.assertEqual(schema[0], 0.75)
         self.assertEqual(schema[1]['a'], int)
+
+    def test_nested(self):
+        doc = {1: {2: 3}}
+        schema = chard.get_schema([doc])
+        self.assertEqual(schema[0], 1.0)
+
+
+class TestGetNiceSchema(unittest.TestCase):
+
+    def test_empty(self):
+        docs = ({},)
+        schema = chard.get_nice_schema(docs)
+        self.assertEqual(schema, '(1.0, {})')
