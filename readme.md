@@ -2,6 +2,9 @@ chard
 =====
 
 
+[![Build Status](https://travis-ci.org/uniphil/chard.png?branch=master)](https://travis-ci.org/uniphil/chard)
+
+
 Rebel. or stupid.
 -----------------
 
